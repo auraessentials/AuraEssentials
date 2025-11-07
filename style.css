@@ -160,7 +160,7 @@
 }
 /* Enhanced Header */
  header {
-     position: fixed;
+     position: absolute;
      top: 20px;
      left: 50%;
      transform: translateX(-50%);
@@ -1451,27 +1451,20 @@
 @media (max-width: 768px) {
     header {
         /* Positioning: Keep it fixed and centered, but closer to the top edge */
-        position: fixed;
-        top: 10px; /* Reduced distance from the top */
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 100;
-        
-        
-        /* Width: Take up more horizontal space on mobile */
-        width: 98%; /* Slightly wider to feel less constrained */
-        max-width: none; /* Remove max-width constraint for full flexibility */
-        
-        /* Padding: Greatly reduced for a tighter fit */
-        padding: 10px 15px; /* Reduced padding */
-        
-        /* Appearance: Slightly less intense blur and shadow */
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        background: rgba(224, 163, 255, 0.08);
-        backdrop-filter: blur(15px); /* Reduced blur intensity */
-        border: 1px solid rgba(224, 163, 255, 0.15);
-        border-radius: 15px; /* Reduced border radius for a smoother mobile look */
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Softer shadow */
+        position: absolute;
+     top: 20px;
+     left: 50%;
+     transform: translateX(-50%);
+     z-index: 100;
+     width: 96%;
+     max-width: 768px;
+     padding: 18px 35px;
+     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+     background: rgba(224, 163, 255, 0.08);
+     backdrop-filter: blur(25px);
+     border: 1px solid rgba(224, 163, 255, 0.15);
+     border-radius: 25px;
+     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     /* Scrolled State for Mobile */
@@ -1492,6 +1485,9 @@
         
         /* Line height can be slightly increased to improve text flow on smaller screens */
         line-height: 1.7; 
+
+        width: 98%;
+        max-width: fit-content;
         
         /* Other properties can generally remain the same as they are already device-agnostic */
         font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -1503,4 +1499,25 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+}
+
+
+/* Import the font if not already done in HTML */
+/* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap'); */
+
+.running-text {
+    /* 1. Font Selection: Handwriting/Script style */
+    font-family: 'Dancing Script', cursive; /* Fallback to generic cursive */
+    font-size: 0.9em; /* Make it prominent, adjust as needed */
+    font-weight: 700; /* Bold for better visibility */
+    
+    /* 2. Color & Contrast: Modern, vibrant color */
+    color: #00ffff; /* A bright cyan for a modern, techy look */
+    
+    /* 3. Text Shadow: For depth and a "glowing" effect */
+    text-shadow: 
+        0 0 5px rgba(0, 255, 255, 0.7), /* Inner glow */
+        0 0 15px rgba(0, 255, 255, 0.5), /* Outer glow */
+        0 0 25px rgba(0, 255, 255, 0.3); /* Further spread */
+    
 }
