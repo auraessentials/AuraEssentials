@@ -1,12 +1,5 @@
 // JavaScript Document
 
-/*
-
-TemplateMo 597 Neural Glass
-
-https://templatemo.com/tm-597-neural-glass
-
-*/
 
 // Mobile menu functionality
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
