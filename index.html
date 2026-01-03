@@ -379,6 +379,32 @@
                 Enhanced by Aura Essentials | 
                 <a href="#">Aura Essentials</a>
             </div>-->
+          <h2>Total Visitors: <span id="count">0</span></h2>
+          
+          <script>
+          const VISITOR_KEY = "uniqueVisitors";
+          
+          async function getIP() {
+              const response = await fetch("https://api.ipify.org?format=json");
+              const data = await response.json();
+              return data.ip;
+          }
+          
+          async function countVisitor() {
+              let storedVisitors = JSON.parse(localStorage.getItem(VISITOR_KEY)) || [];
+          
+              const ip = await getIP();
+          
+              if (!storedVisitors.includes(ip)) {
+                  storedVisitors.push(ip);
+                  localStorage.setItem(VISITOR_KEY, JSON.stringify(storedVisitors));
+              }
+          
+              document.getElementById("count").innerText = storedVisitors.length;
+          }
+          
+          countVisitor();
+          </script>
         </div>
     </footer>
     <script src="scripts.js"></script>
@@ -435,6 +461,7 @@
 
 
 </html>
+
 
 
 
